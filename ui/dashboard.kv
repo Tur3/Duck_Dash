@@ -1,0 +1,209 @@
+#:kivy 2.3.0
+
+<Dashboard>:
+    canvas.before:
+        Color:
+            rgba: 0, 0, 0, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    # === SINISTRA: CERCHIO RPM/KM ===
+    FloatLayout:
+        size_hint: None, None
+        size: 340, 340
+        pos: 30, 70
+        
+        # Cerchio esterno bianco
+        canvas:
+            Color:
+                rgba: 1, 1, 1, 1
+            Line:
+                circle: self.x + 170, self.y + 170, 165, 0, 360
+                width: 3
+        
+        # Label RPM in alto
+        Label:
+            text: "RPM"
+            font_size: '18sp'
+            color: 1, 1, 1, 1
+            pos_hint: {'center_x': 0.5, 'center_y': 0.75}
+        
+        # Valore RPM grande
+        Label:
+            id: rpm_value
+            text: "0"
+            font_size: '90sp'
+            bold: True
+            color: 1, 1, 1, 1
+            pos_hint: {'center_x': 0.5, 'center_y': 0.55}
+        
+        # Label KM sotto
+        Label:
+            text: "KM"
+            font_size: '60sp'
+            bold: True
+            color: 1, 1, 1, 1
+            pos_hint: {'center_x': 0.5, 'center_y': 0.35}
+ 
+	# KM (Label per i km orari)
+        Label:
+            id: speed_value
+            text: "0"
+            font_size: '60sp'
+            bold: True
+            color: 1, 1, 1, 1
+            pos_hint: {'center_x': 0.5, 'center_y': 0.2}
+
+    # === DESTRA: BARRE INFO ===
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: None, None
+        size: 350, 340
+        pos: 420, 70
+        spacing: 10
+        
+        # TEMP
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, None
+            height: 70
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Line:
+                    rectangle: self.x, self.y, self.width, self.height
+                    width: 2
+            
+            Label:
+                text: "TEMP"
+                font_size: '24sp'
+                bold: True
+                color: 1, 1, 1, 1
+                size_hint: 0.4, 1
+            
+            Widget:
+                size_hint: 0.05, 1
+            
+            # Barra progresso TEMP
+            FloatLayout:
+                size_hint: 0.55, 1
+                
+                # Sfondo nero
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 1
+                    Rectangle:
+                        pos: self.x, self.y
+                        size: self.width, self.height
+                
+                # Barra verde/gialla/rossa
+                Widget:
+                    id: temp_bar
+                    size_hint: 0, 1
+                    pos_hint: {'x': 0, 'center_y': 0.5}
+        
+        # TEMP_OIL
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, None
+            height: 70
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Line:
+                    rectangle: self.x, self.y, self.width, self.height
+                    width: 2
+            
+            Label:
+                text: "TEMP_OIL"
+                font_size: '24sp'
+                bold: True
+                color: 1, 1, 1, 1
+                size_hint: 0.4, 1
+            
+            Widget:
+                size_hint: 0.05, 1
+            
+            # Barra progresso TEMP_OIL
+            FloatLayout:
+                size_hint: 0.55, 1
+                
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 1
+                    Rectangle:
+                        pos: self.x, self.y
+                        size: self.width, self.height
+                
+                Widget:
+                    id: temp_oil_bar
+                    size_hint: 0, 1
+                    pos_hint: {'x': 0, 'center_y': 0.5}
+        
+        # FUEL
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, None
+            height: 70
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Line:
+                    rectangle: self.x, self.y, self.width, self.height
+                    width: 2
+            
+            Label:
+                text: "FUEL"
+                font_size: '24sp'
+                bold: True
+                color: 1, 1, 1, 1
+                size_hint: 0.4, 1
+            
+            Widget:
+                size_hint: 0.05, 1
+            
+            # Barra progresso FUEL
+            FloatLayout:
+                size_hint: 0.55, 1
+                
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 1
+                    Rectangle:
+                        pos: self.x, self.y
+                        size: self.width, self.height
+                
+                Widget:
+                    id: fuel_bar
+                    size_hint: 0, 1
+                    pos_hint: {'x': 0, 'center_y': 0.5}
+        
+        # INFO BOX
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 1, None
+            height: 90
+            canvas.before:
+                Color:
+                    rgba: 1, 1, 1, 1
+                Line:
+                    rounded_rectangle: self.x, self.y, self.width, self.height, 15
+                    width: 2
+            
+            Label:
+                text: "INFO"
+                font_size: '28sp'
+                bold: True
+                color: 1, 1, 1, 1
+                halign: 'center'
+                valign: 'middle'
+    
+    # === FOOTER: POWERED BY ===
+    Label:
+        text: "POWERED BY : OP_ENGINE"
+        font_size: '16sp'
+        color: 1, 1, 1, 1
+        pos: 15, 15
+        size_hint: None, None
+        size: 300, 30
