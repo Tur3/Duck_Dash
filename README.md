@@ -186,3 +186,11 @@ See LICENSE file
 ---
 
 **POWERED BY : OP_ENGINE - Tur3**
+
+---
+
+## ⚠️ Avviso / Notice
+
+🇮🇹 **Avviso:** Il codice è attualmente commentato in italiano, ma presto verrà caricato un file .zip con tutto il codice commentato in inglese.  
+
+🇬🇧 **Notice:** The code is currently commented in Italian, but a .zip file with all code commented in English will be uploaded soon.
