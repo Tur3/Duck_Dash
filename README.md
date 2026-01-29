@@ -4,7 +4,7 @@
 
 Dashboard digitale per strumentazione veicoli.
 
-![Dashboard](screenshot.png)
+![Dashboard](DashV1.png)
 
 ## Caratteristiche
 
@@ -98,7 +98,7 @@ Leggere il file LICENSE
 
 Digital dashboard for vehicle instrumentation.
 
-![Dashboard](screenshot.png)
+![Dashboard](DashV1.png)
 
 ## Features
 
